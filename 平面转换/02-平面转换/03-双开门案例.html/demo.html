@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            margin: 0 auto;
+            width: 1366px;
+            height: 600px;
+            background-image: url(./images/bg.jpg);
+            /* 超出父级box范围的隐藏 */
+            overflow: hidden;
+        }
+        /* 使用伪元素设置左右图片共同样式 */
+        .box::before,
+        .box::after {
+            float: left;
+            content: '';
+            /* 伪元素默认行内，转显示模式 */
+            /* display: inline-block; */
+            width: 50%;
+            height: 100%;
+            background-image: url(./images/fm.jpg);
+            transition: all 1s;
+        }
+        /* 单独设置右图 */
+        /* 使用精灵图设置右图位置 */
+        .box::after {
+            /* 要图片的右半个图 */
+            background-position: right 0;
+        }
+        /* 设置移动 */
+
+        /* 鼠标移入box,brfore图向左移 */
+        .box:hover::before {
+            transform: translate(-100%);
+        }
+        /* 鼠标移入box,after图向右移 */
+        .box:hover::after {
+            transform: translateX(100%);
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <!-- 左右图可以 1.设置两个div, 2.使用伪元素before after -->
+    </div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        li {
+            list-style: none;
+        }
+        img {
+            width: 100%;
+        }
+        .box {
+            width: 249px;
+            height: 210px;
+            margin: 50px auto;
+        }
+        .box p {
+            color: #3b3b3b;
+            padding: 10px 10px 0 10px;
+        }
+        .box .pic {
+            position: relative;
+        }
+        /* 1.播放按钮盒子，压在img标签的上面(定位)
+           2.hover的时候缩放效果
+            默认:伪元素看不见;特别大的
+            hover:，伪元素看得见;、小的: 58    */  
+        /* 伪元素定位 给pic后加层叠图片  */
+        .box .pic::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            /* margin-left: -29px;
+            margin-top: -29px; */
+            /* transform: translate(-50%,-50%); */
+            width: 58px;
+            height: 58px;
+            background-image: url(./images/play.png);
+            /* 平面转换transform有层叠样式，位移和缩放不能分开写，要写一起，hover也要同时设计 */
+            transform: translate(-50%,-50%) scale(4);
+            /* 透明度为0，让超出父级的伪元素图看不见。也可以用display实现*/
+            opacity: 0;
+            /* 过渡：慢慢显现效果 */
+            transition: all .5s;
+        }
+        /* 给伪元素实现缩放效果 */
+        /* 鼠标移入li,让after有变化 */
+        .box li:hover .pic::after {
+            /* 位移和缩放不能分开写，要写一起 */
+            transform:translate(-50%,-50%) scale(1);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li>
+                <!-- <a href="#"> -->
+                    <div class="pic"><img src="./images/party.jpeg" alt=""></div>
+                    <p>【和平精英】“初火”音乐概念片:四圣觉醒......</p>
+                <!-- </a> -->
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

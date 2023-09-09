@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>立体呈现</title>
+    <style>
+        .cube {
+            position: relative;
+            margin: 100px auto;
+            width: 200px;
+            height: 200px;
+            /* background-color: pink; */
+            transition: all 2s;
+            /* 1.先将父级盒子处于3D空间中 */
+            transform-style: preserve-3d;
+        }
+        .cube div {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 200px;
+            height: 200px;
+        }
+        .cube .front {
+            background-color: orange;
+            /* 2.把橙色盒子沿着z轴向前位移,使其在前 */
+            transform: translateZ(200px);
+        }
+        .cube .back {
+            background-color: green;
+        }
+        /* 给要转换的盒子 的父级添加hover */
+        .cube:hover {
+            /* 3.左手法则：盒子绕y轴顺时针旋转 */
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="cube">
+        <div class="front">前面</div>
+        <div class="back">后面</div>
+    </div>
+</body>
+</html>

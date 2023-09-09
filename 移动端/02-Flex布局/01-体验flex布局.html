@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .box {
+            /* height: 200px; */
+            /* flex——解决子级脱标问题 */
+            display: flex;
+            justify-content: space-between;
+            border: 1px solid #000;
+        }
+        .box div {
+            /* 浮动解决子级脱标问题：父级没有高，子级撑不开父级 */
+            /* float: left;
+            margin: 10px; */
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+</body>
+</html>

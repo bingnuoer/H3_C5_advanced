@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>精灵动画</title>
+    <style>
+        /* 1.准备显示区域 区域大小是一个小精灵图的大小 */
+        .box {
+            margin: 50px auto;
+            width: 140px;
+            height: 140px;
+            /* border: 1px solid #000; */
+            background-image: url(./images/bg.png);
+            /* 3.使用动画 steps是小精灵图个数 无限循环效果*/
+            animation: move .5s steps(12) infinite;
+        }
+        /* 2.定义动画 使用定位移动精灵图 距离是一整大张精灵图宽度*/
+        @keyframes move {
+            from {
+                background-position: 0 0;
+            }
+            to {
+                background-position: -1680px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

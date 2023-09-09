@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animation复合属性</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            /* 使用动画拆分写法 */
+            /* 动画名称 时长都有 才会产生动画效果 */
+            animation-name: change;
+            animation-duration: 1s;
+            animation-delay: .5s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+        @keyframes change {
+            from{
+                width: 200px;
+            }
+            to{
+                width: 600px;
+            }
+        }
+        /* 鼠标移入时暂停动画，配合hover使用 */
+        .box:hover {
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

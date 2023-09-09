@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>透视</title>
+    <style>
+        /* box实现在z轴位移效果，给box父级body添加属性perspective：值800-1200px*/
+        body {
+            perspective: 1000px;
+        }
+
+        .box {
+            margin: 100px auto;
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            transition: all .8s;
+        }
+
+        .box:hover {
+            /* z正方向，视觉效果盒子变大 */
+            transform: translateZ(200px);
+            /* z负方向，视觉效果盒子变小 */
+            transform: translateZ(-200px);
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>
